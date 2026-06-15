@@ -51,7 +51,7 @@ const validate = (e) => {
   }
 
   emit("save-patient");
-  alert.message = 'Pasiente alamcenado correctamente'
+  alert.message = 'Paciente almacenado correctamente'
   alert.type = 'exito'
 
   setTimeout(() => {
@@ -68,29 +68,29 @@ const editing = computed(() => {
 </script>
 
 <template>
-  <div class="md:w-1/2">
-    <h2 class="font-black text-3xl text-center">Seguimiento Pacientes</h2>
+  <div class="bg-white shadow-xl shadow-slate-200/50 rounded-3xl p-8 border border-slate-100">
+    <h2 class="font-black text-3xl text-center text-slate-800 tracking-tight">Registro de Citas</h2>
 
-    <p class="text-lg mt-5 text-center mb-10">
+    <p class="text-lg mt-2 text-center mb-8 text-slate-500">
       Añade pacientes y
-      <span class="text-indigo-600 font-bold">Administralos</span>
+      <span class="text-indigo-600 font-bold">gestiónalos</span>
     </p>
 
     <Alert v-if="alert.message" :alert="alert" />
 
     <form
-      class="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
+      class="space-y-5"
       @submit.prevent="validate"
     >
       <div class="mb-5">
-        <label for="mascota" class="block text-gray-700 uppercase font-bold">
+        <label for="mascota" class="block text-slate-600 uppercase font-bold text-xs tracking-widest">
           Nombre Mascota
         </label>
         <input
           id="mascota"
           type="text"
           placeholder="Nombre de la mascota"
-          class="border w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+          class="border border-slate-200 w-full p-3 mt-2 placeholder-slate-400 rounded-xl focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100/50 outline-none transition-all bg-slate-50/30"
           :value="name"
           @input="$emit('update:name', $event.target.value)"
         />
@@ -99,7 +99,7 @@ const editing = computed(() => {
       <div class="mb-5">
         <label
           for="propietario"
-          class="block text-gray-700 uppercase font-bold"
+          class="block text-slate-600 uppercase font-bold text-xs tracking-widest"
         >
           Nombre propietario
         </label>
@@ -107,47 +107,47 @@ const editing = computed(() => {
           id="propietario"
           type="text"
           placeholder="Nombre del propietario"
-          class="border w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+          class="border border-slate-200 w-full p-3 mt-2 placeholder-slate-400 rounded-xl focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100/50 outline-none transition-all bg-slate-50/30"
           :value="owner"
           @input="$emit('update:owner', $event.target.value)"
         />
       </div>
 
       <div class="mb-5">
-        <label for="email" class="block text-gray-700 uppercase font-bold">
+        <label for="email" class="block text-slate-600 uppercase font-bold text-xs tracking-widest">
           Correo
         </label>
         <input
           id="email"
           type="email"
           placeholder="Email del propietario"
-          class="border w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+          class="border border-slate-200 w-full p-3 mt-2 placeholder-slate-400 rounded-xl focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100/50 outline-none transition-all bg-slate-50/30"
           :value="email"
           @input="$emit('update:email', $event.target.value)"
         />
       </div>
 
       <div class="mb-5">
-        <label for="alta" class="block text-gray-700 uppercase font-bold">
+        <label for="alta" class="block text-slate-600 uppercase font-bold text-xs tracking-widest">
           Alta
         </label>
         <input
           id="alta"
           type="date"
-          class="border-2 w-full mt-2 placeholder-gray-400 rounded-md"
+          class="border border-slate-200 w-full p-3 mt-2 placeholder-slate-400 rounded-xl focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100/50 outline-none transition-all bg-slate-50/30 text-slate-600"
           :value="alta"
           @input="$emit('update:alta', $event.target.value)"
         />
       </div>
 
       <div class="mb-5">
-        <label for="sintomas" class="block text-gray-700 uppercase font-bold">
+        <label for="sintomas" class="block text-slate-600 uppercase font-bold text-xs tracking-widest">
           Sintomas
         </label>
         <textarea
           id="sintomas"
           placeholder="Describe los sintomas del paciente"
-          class="border w-full p-2 mt-2 placeholder-gray-400 rounded-md h-40"
+          class="border border-slate-200 w-full p-3 mt-2 placeholder-slate-400 rounded-xl h-32 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100/50 outline-none transition-all resize-none bg-slate-50/30"
           :value="symptoms"
           @input="$emit('update:symptoms', $event.target.value)"
         />
@@ -155,7 +155,7 @@ const editing = computed(() => {
 
       <input
         type="submit"
-        class="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-400 cursor-pointer transition-colors"
+        class="bg-indigo-600 w-full p-4 text-white uppercase font-black hover:bg-indigo-700 cursor-pointer transition-all rounded-xl shadow-lg shadow-indigo-200 active:scale-[0.98]"
         :value="[editing ? 'Guardar Cambios' : 'Registrar paciente']"
       />
     </form>
